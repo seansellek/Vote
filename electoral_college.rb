@@ -36,6 +36,7 @@ end
 
 class State
   @@all_states = []
+  @@total_population = 0
   attr_accessor :name, :population, :split, :electoral_votes
   def initialize(name, population, split = {dem: 50, rep:50})
     @split = split
@@ -106,7 +107,7 @@ class State
 end
 
 
-  require 'minitest/autorun'
+require 'minitest/autorun'
 class TestVoterSim < Minitest::Test
   def test_voter_aff
     Voter.reset
