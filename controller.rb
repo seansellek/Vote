@@ -54,6 +54,9 @@ class Controller
         @state = :help
       when /^exit$/i
         @running = false
+      else
+        puts "'#{input}' is invalid input."
+        sleep(1)
     end
   end
 
