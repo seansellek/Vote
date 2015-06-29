@@ -16,7 +16,7 @@ class JSON_Importer
     data_file = File.read(path)
     poll_data = JSON.parse(data_file)
     poll_data.each do |state, polls|
-      @world.states[state.to_sym].polls = polls
+      @world.states[state.to_sym].polls = polls if @world.states.has_key? state.to_sym
     end
   end
 end

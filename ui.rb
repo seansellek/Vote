@@ -15,11 +15,11 @@ class UI
       when :help
         print_help
       when :display_data
-        if @country.states[:AL].polls.empty?
-          draw_state(:populations)
-        else
+        # if @country.states.first[1].polls.empty?
+        #   draw_state(:populations)
+        # else
           draw_state(:populations, :polls)
-        end
+        # end
       when :results
         draw_state(:populations, :polls, :results)
     end
@@ -30,10 +30,11 @@ class UI
     puts "Instructions: Prepare your scenario (state populations & polls) with the commands below. then type 'run'\n".center(130)
     puts "CREATE    To manually create a state with population =>\t'FL 18900773'"
     puts "UPDATE    To update an existing state's population =>\t'FL 19800773'"
+    puts "LIST      To display all data imported  => \t\t'list"
     puts "IMPORT    To load 2010 US Census Data, type =>\t\t'import census'"
     puts "\t  To load poll results from json => \t \t'import poll ./data/poll.json"
     puts
-    puts "Recommended: import census => import poll => run".center(130)
+    puts "Recommended: import census => list => import poll => run".center(130)
     puts
   end
 
@@ -49,7 +50,7 @@ class UI
       candidates = state.polls.keys
       output << "\n" if index%3 == 0
       output << initials.to_s + ": "
-      if options.include?(:polls) && options.include?(:results)
+      if options.include?(:polls) && options.include?(:results) && !state.polls.empty?
         output << " "
         output << blue_highlight(" " + state.electoral_votes.to_s + " ") if state.polls[candidates[0]] > state.polls[candidates[1]]
         output << red_highlight(" " + state.electoral_votes.to_s + " ") if state.polls[candidates[1]] > state.polls[candidates[0]]

@@ -44,7 +44,7 @@ class Country
       state.polls.each do |candidate, percent|
         results[candidate] ||= 0
         results[candidate] += pop*percent/100
-      end
+      end if !state.polls.empty?
     end
     results.each do |candidate, tally|
       results[candidate] = tally/population * 100
@@ -54,11 +54,23 @@ class Country
   def electoral_results
     results = {}
     @states.each do |slug, state|
-      winning_candidate, percent = state.polls.max_by {|k,v| v}
-      results[winning_candidate] ||= 0
-      results[winning_candidate] += state.electoral_votes      
+      if !state.polls.empty?
+        winning_candidate, percent = state.polls.max_by {|k,v| v}
+        results[winning_candidate] ||= 0
+        results[winning_candidate] += state.electoral_votes
+      end      
     end
     results
   end
-
+  def add_state slug, population
+    @states[slug] = State.new(slug,population)
+    update_population
+  end
+  def state_exists? slug
+    return !!@states[slug]
+  end
+  def set_state_population slug, population
+    @states[slug].population = population
+    update_population
+  end
 end

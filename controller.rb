@@ -15,19 +15,32 @@ class Controller
     ui.display(state)
     input = ui.get_input()
     case input
+      when /^\w\w \d+$/i
+        input = input.split(' ')
+        slug = input[0].upcase
+        population = input[1].to_i
+        if country.state_exists? slug
+          country.set_state_population(slug,population)
+        else
+          country.add_state(slug, population)
+        end
+        @state = :display_data unless country.states.empty?
       when /^import census$/i
         import.population
         puts "Imported 2010 Census Data"
         sleep(1)
+        @state = :display_data unless country.states.empty?
       when /^import poll [\w\/\.]+$/i
         input = input.split(' ')
         import.polls(input[2])
         puts "Imported polls from #{input[2]}"
         sleep(1)
+        @state = :display_data unless country.states.empty?
       when /^import poll$/i
         import.polls
         puts "Imported polls from 2012 election"
         sleep(1)
+        @state = :display_data unless country.states.empty?
       when /^import$/i
         import.population
         import.polls
