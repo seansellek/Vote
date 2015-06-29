@@ -101,14 +101,16 @@ class UI
     puts line
   end
   def results
+    electoral_results = @country.electoral_results
+    popular_results = @country.popular_results
     output = ""
-    line = @country.electoral_results.keys.map{|name| name.capitalize }.sort.join(" vs. ")
+    line = electoral_results.keys.map{|name| name.capitalize }.sort.join(" vs. ")
     output << line.center(130) + "\n"
     line = "Electoral: " 
-    line << @country.electoral_results.sort_by{|name,value| name}.map{|candidate| candidate[1]}.join("/")
+    line << electoral_results.sort_by{|name,value| name}.map{|candidate| candidate[1]}.join("/")
     output << line.center(130) + "\n"
     line = "Popular: "
-    line << @country.popular_results.sort_by{|name,value| name}.map{|candidate| candidate[1].round(1)}.join("/")
+    line << popular_results.sort_by{|name,value| name}.map{|candidate| candidate[1].round(1)}.join("/")
     output << line.center(130) + "\n"
     output
   end

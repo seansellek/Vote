@@ -8,7 +8,8 @@ class JSON_Importer
     population_data = JSON.parse(data_file)
     population_data.each do |state, population|
       initials = state.to_sym
-      @world.states[initials] = State.new(initials, population)
+      population = population.to_i
+      @world.states[initials] = State.new(population)
     end
     @world.update_population
   end
