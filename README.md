@@ -1,5 +1,4 @@
 ![Vote](https://raw.githubusercontent.com/seansellek/Vote/master/images/vote_banner.jpg)
-#Vote
 Vote parses population and poll results from json files and calculates results, allowing you to compare electoral vs. popular outcomes. Ultimately, the goal is for Vote to automatically pull the latest poll data from polling apis during a race. It is in very early stages, and can break in a million ways if you don't follow the instructions carefully. =)
 
 ##Instructions
