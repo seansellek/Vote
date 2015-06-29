@@ -1,0 +1,207 @@
+// 2012 election splits
+{
+    "AL": {
+        "obama": 38.4,
+        "romney": 60.7
+    },
+    "AK": {
+        "obama": 36.9,
+        "romney": 60.5
+    },
+    "AZ": {
+        "obama": 44.4,
+        "romney": 53.5
+    },
+    "AR": {
+        "obama": 44.1,
+        "romney": 54.2
+    },
+    "CA": {
+        "obama": 59.3,
+        "romney": 38.3
+    },
+    "CO": {
+        "obama": 51.2,
+        "romney": 46.5
+    },
+    "CT": {
+        "obama": 58.4,
+        "romney": 40.4
+    },
+    "DC": {
+        "obama": 90.9,
+        "romney": 7.3
+    },
+    "DE": {
+        "obama": 58.6,
+        "romney": 40.0
+    },
+    "FL": {
+        "obama": 50.0,
+        "romney": 49.1
+    },
+    "GA": {
+        "obama": 45.4,
+        "romney": 53.4
+    },
+    "HI": {
+        "obama": 70.6,
+        "romney": 27.8
+    },
+    "ID": {
+        "obama": 32.6,
+        "romney": 64.5
+    },
+    "IL": {
+        "obama": 57.3,
+        "romney": 41.1
+    },
+    "IN": {
+        "obama": 43.8,
+        "romney": 54.0
+    },
+    "IA": {
+        "obama": 52.1,
+        "romney": 46.5
+    },
+    "KS": {
+        "obama": 38.1,
+        "romney": 59.1
+    },
+    "KY": {
+        "obama": 37.8,
+        "romney": 60.5
+    },
+    "LA": {
+        "obama": 40.6,
+        "romney": 57.8
+    },
+    "ME": {
+        "obama": 56.9,
+        "romney": 40.9
+    },
+    "MD": {
+        "obama": 61.7,
+        "romney": 36.6
+    },
+    "MA": {
+        "obama": 60.7,
+        "romney": 37.5
+    },
+    "MI": {
+        "obama": 54.3,
+        "romney": 44.8
+    },
+    "MN": {
+        "obama": 52.8,
+        "romney": 45.1
+    },
+    "MS": {
+        "obama": 43.5,
+        "romney": 55.5
+    },
+    "MO": {
+        "obama": 44.3,
+        "romney": 53.9
+    },
+    "MT": {
+        "obama": 41.8,
+        "romney": 55.30
+    },
+    "NE": {
+        "obama": 37.8,
+        "romney": 60.5
+    },
+    "NV": {
+        "obama": 52.4,
+        "romney": 45.7
+    },
+    "NH": {
+        "obama": 52.2,
+        "romney": 46.4
+    },
+    "NJ": {
+        "obama": 58.0,
+        "romney": 40.9
+    },
+    "NM": {
+        "obama": 52.9,
+        "romney": 43.0
+    },
+    "NY": {
+        "obama": 62.6,
+        "romney": 36.0
+    },
+    "NC": {
+        "obama": 48.4,
+        "romney": 50.6
+    },
+    "ND": {
+        "obama": 38.9,
+        "romney": 58.7
+    },
+    "OH": {
+        "obama": 50.1,
+        "romney": 46.8
+    },
+    "OK": {
+        "obama": 33.2,
+        "romney": 66.8
+    },
+    "OR": {
+        "obama": 54.5,
+        "romney": 42.7
+    },
+    "PA": {
+        "obama": 52.0,
+        "romney": 46.8
+    },
+    "RI": {
+        "obama": 62.7,
+        "romney": 35.5
+    },
+    "SC": {
+        "obama": 44.1,
+        "romney": 54.6
+    },
+    "SD": {
+        "obama": 39.9,
+        "romney": 57.9
+    },
+    "TN": {
+        "obama": 39.0,
+        "romney": 59.5
+    },
+    "TX": {
+        "obama": 41.4,
+        "romney": 57.2
+    },
+    "UT": {
+        "obama": 24.9,
+        "romney": 72.8
+    },
+    "VT": {
+        "obama": 67.0,
+        "romney": 31.2
+    },
+    "VA": {
+        "obama": 50.8,
+        "romney": 47.8
+    },
+    "WA": {
+        "obama": 55.8,
+        "romney": 41.7
+    },
+    "WV": {
+        "obama": 35.5,
+        "romney": 62.3
+    },
+    "WI": {
+        "obama": 52.8,
+        "romney": 46.1
+    },
+    "WY": {
+        "obama": 28.0,
+        "romney": 69.3
+    }
+}
