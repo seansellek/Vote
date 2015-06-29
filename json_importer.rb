@@ -12,8 +12,8 @@ class JSON_Importer
     end
     @world.update_population
   end
-  def polls path
-    data_file = path ? File.read(path) : File.read("./data/poll.json")
+  def polls path = "./data/poll.json"
+    data_file = File.read(path)
     poll_data = JSON.parse(data_file)
     poll_data.each do |state, polls|
       @world.states[state.to_sym].polls = polls

@@ -18,14 +18,29 @@ class Controller
       when /^import census$/i
         import.population
         puts "Imported 2010 Census Data"
+        sleep(1)
       when /^import poll [\w\/\.]+$/i
         input = input.split(' ')
         import.polls(input[2])
         puts "Imported polls from #{input[2]}"
-      when /^run$/i
+        sleep(1)
+      when /^import poll$/i
+        import.polls
+        puts "Imported polls from 2012 election"
+        sleep(1)
+      when /^import$/i
+        import.population
+        import.polls
+        puts "Imported population and polls"
+        sleep(1)
+      when /^list$/i
         @state = :display_data unless country.states.empty?
+      when /^run$/i
+        @state = :results unless country.states.empty?
       when /^help$/i
         @state = :help
+      when /^exit$/i
+        @running = false
     end
   end
 

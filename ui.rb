@@ -6,8 +6,8 @@ class UI
   def clear
     system('clear')
   end
-  def print_line symbol = "\# "
-    puts symbol*65
+  def line symbol = "\# "
+    symbol*65
   end
   def display state = :none
     print_header
@@ -20,6 +20,8 @@ class UI
         else
           draw_state(:populations, :polls)
         end
+      when :results
+        draw_state(:populations, :polls, :results)
     end
     puts
   end
@@ -47,16 +49,16 @@ class UI
       candidates = state.polls.keys
       output << "\n" if index%3 == 0
       output << initials.to_s + ": "
-      if options.include? :polls
+      if options.include?(:polls) && options.include?(:results)
         output << " "
         output << blue_highlight(" " + state.electoral_votes.to_s + " ") if state.polls[candidates[0]] > state.polls[candidates[1]]
         output << red_highlight(" " + state.electoral_votes.to_s + " ") if state.polls[candidates[1]] > state.polls[candidates[0]]
         output << " "
+      else
+        output << " " + state.electoral_votes.to_s + "\t"
       end
-      if options.include? :populations
-        output << " " + state.electoral_votes.to_s + "\t" unless options.include? :polls
-        output << format_num(state.population,10) + "\t" 
-      end
+
+      output << format_num(state.population,10) + "\t"
       if options.include? :polls
         state.polls.each_with_index do |(candidate,percent), index|
           output << blue(percent.to_s) if candidate == candidates[0]
@@ -68,7 +70,11 @@ class UI
     end
     puts output
     puts 
-    print_line("= ")
+    puts line("= ")
+    if options.include? :results
+      puts results
+      puts line("= ")
+    end
   end
 
   def format_num(int, digits)
@@ -87,11 +93,23 @@ class UI
                                            #+#+#+#   #+#    #+#    #+#     #+#       
                                              ###      ########     ###     \@seansellek\033[0m"
     puts
-    print_line
+    puts line
     puts
     puts "Vote parses the latest state by state polls and calculates popular vs electoral outcomes.".center(130)
     puts
-    print_line
+    puts line
+  end
+  def results
+    output = ""
+    line = @country.electoral_results.keys.map{|name| name.capitalize }.sort.join(" vs. ")
+    output << line.center(130) + "\n"
+    line = "Electoral: " 
+    line << @country.electoral_results.sort_by{|name,value| name}.map{|candidate| candidate[1]}.join("/")
+    output << line.center(130) + "\n"
+    line = "Popular: "
+    line << @country.popular_results.sort_by{|name,value| name}.map{|candidate| candidate[1].round(1)}.join("/")
+    output << line.center(130) + "\n"
+    output
   end
   def blue string
     "\033[34m" + string.to_s + "\033[0m"
