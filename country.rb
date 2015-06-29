@@ -55,13 +55,8 @@ class Country
     results = {}
     @states.each do |slug, state|
       winning_candidate, percent = state.polls.max_by {|k,v| v}
-      results[:total] ||= {}
-      results[:total][winning_candidate] ||= 0
-      results[:total][winning_candidate] += state.electoral_votes
-
-      results[slug] = []
-      results[slug] = [winning_candidate, state.electoral_votes]
-      
+      results[winning_candidate] ||= 0
+      results[winning_candidate] += state.electoral_votes      
     end
     results
   end
